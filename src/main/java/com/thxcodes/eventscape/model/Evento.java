@@ -1,7 +1,7 @@
 package com.thxcodes.eventscape.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "eventos")
@@ -14,14 +14,27 @@ public class Evento {
     @Column(nullable = false, length = 100)
     private String nome;
 
-    @Column(name = "data_evento", nullable = false)
-    private LocalDate dataEvento;
+    @Column(name = "data_hora_evento", nullable = false)
+    private LocalDateTime dataHoraEvento;
 
     @Column(length = 200)
     private String local;
 
     @Column(columnDefinition = "TEXT")
     private String descricao;
+
+    // Construtor sem parâmetros
+    public Evento() {
+    }
+
+    // Construtor com parâmetros
+    public Evento(Long id, String nome, LocalDateTime dataHoraEvento, String local, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.dataHoraEvento = dataHoraEvento;
+        this.local = local;
+        this.descricao = descricao;
+    }
 
     // Getters e Setters (gerados automaticamente ou implementados manualmente)
 
@@ -41,12 +54,12 @@ public class Evento {
         this.nome = nome;
     }
 
-    public LocalDate getDataEvento() {
-        return dataEvento;
+    public LocalDateTime getDataHoraEvento() {
+        return dataHoraEvento;
     }
 
-    public void setDataEvento(LocalDate dataEvento) {
-        this.dataEvento = dataEvento;
+    public void setDataHoraEvento(LocalDateTime dataHoraEvento) {
+        this.dataHoraEvento = dataHoraEvento;
     }
 
     public String getLocal() {

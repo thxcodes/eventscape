@@ -48,7 +48,7 @@ public class EventoController {
         if (optionalEvento.isPresent()) {
             Evento evento = optionalEvento.get();
             evento.setNome(eventoDetails.getNome());
-            evento.setDataEvento(eventoDetails.getDataEvento());
+            evento.setDataHoraEvento(eventoDetails.getDataHoraEvento());
             evento.setLocal(eventoDetails.getLocal());
             evento.setDescricao(eventoDetails.getDescricao());
             return ResponseEntity.ok(eventoRepository.save(evento));
